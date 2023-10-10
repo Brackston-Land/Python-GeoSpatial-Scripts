@@ -1,7 +1,7 @@
 # Python-GeoSpatial-Scripts
 
 
-A collection of python scripts for geospatial data analysis. A majority of the scripts utilize the arcPy module are designed to be executed in conjunction with and Esri Enterprise deployment or ArcGIS Online.
+A collection of python scripts for geospatial data analysis. A majority of the scripts utilize the arcPy module are designed to be executed in conjunction with an Esri Enterprise deployment or ArcGIS Online.
 
 ## Installation
 git clone https://github.com/Brackston-Land/Python-GeoSpatial-Scripts.git
