@@ -1,10 +1,6 @@
 #-------------------------------------------------------------------------------
-# Name:        
-# Purpose:
 # Author:      Brackston Land
-# Created:     30/09/2021
-# Copyright:   (c) Brackston Land 2021
-# Licence:     <your licence>
+# Created:     09/30/2021
 #-------------------------------------------------------------------------------
 import arcpy
 #Set workspace environment to geodatabase
