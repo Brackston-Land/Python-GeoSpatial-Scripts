@@ -1,7 +1,9 @@
 # Python-GeoSpatial-Scripts
-### Created by: Brackston Land
-### Please see script headers for additional credits
 
+Created by: Brackston Land  <br />
+Please see script headers for additional credits
+
+## Description
 A collection of python scripts for geospatial data analysis. A majority of the scripts utilize the arcPy module are designed to be executed in conjunction with an Esri Enterprise deployment or ArcGIS Online.
 
 ## Installation
