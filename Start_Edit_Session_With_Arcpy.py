@@ -1,15 +1,12 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
 # Author:      Brackston Land
-#
-# Created:     22/04/2020
-# Copyright:   (c) Brackston Land 2020
-# Licence:     <your licence>
+# Created:     04/22/2020
 #-------------------------------------------------------------------------------
 
 #https://community.esri.com/thread/121876
+import arcpy
+
+sdeconnection = r"your connection here"
 
 edit = arcpy.da.Editor(sdeconnection)
 print "edit created"
