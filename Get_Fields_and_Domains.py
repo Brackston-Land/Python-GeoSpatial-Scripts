@@ -1,9 +1,7 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
+# Name:        
 # Purpose:
-#
 # Author:      Brackston Land
-#
 # Created:     30/09/2021
 # Copyright:   (c) Brackston Land 2021
 # Licence:     <your licence>
