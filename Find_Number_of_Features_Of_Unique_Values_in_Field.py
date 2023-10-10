@@ -1,12 +1,6 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
 # Author:      Brackston Land
-#
 # Created:     20/04/2020
-# Copyright:   (c) Brackston Land 2020
-# Licence:     <your licence>
 #-------------------------------------------------------------------------------
 
 import arcpy
