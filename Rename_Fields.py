@@ -1,16 +1,6 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
-# Author:      Brackston Land
-#
-# Created:     14/01/2020
-# Copyright:   (c) Brackston Land 2020
-# Licence:     <your licence>
+# Credit: Josh Werts http://joshwerts.com/blog/2014/04/01/arcpy-rename-fields/
 #-------------------------------------------------------------------------------
-
-##Credit: Josh Werts http://joshwerts.com/blog/2014/04/01/arcpy-rename-fields/
-
 
 #######for python 3 .iteritems() attribute has been renamed to .items()
 import arcpy 
