@@ -1,45 +1,23 @@
-#-------------------------------------------------------------------------------
-# Author:      Brackston Land
-# Created:     09/30/2021
-#-------------------------------------------------------------------------------
+'''
+Authors:        Brackston Land, Blake Herrera
+Created:        09/30/2021
+'''
+
+from operator import attrgetter
+
 import arcpy
 #Set workspace environment to geodatabase
 arcpy.env.workspace = r"Database Connections\YourSDE.sde\FeatureClass"
 
-#Get list of feature classes in geodatabase
-FCs = arcpy.ListFeatureClasses()
 
-#Loop through feature classes in list
-for FC in FCs:
+def get_fields(containers):
+    ''' Prints out all field names with a domain.'''
+    for container in containers:
+        # Only iterate through fields with a domain
+        for field in filter(attrgetter('domain'), arcpy.ListFields(container)):
+            print(f'{container}, {field.name}, {field.domain}')
 
-        #List fields in feature class
-        fields = arcpy.ListFields(FC)
 
-        #Loop through fields
-        for field in fields:
-
-            #Check if field has domain
-            if field.domain != "":
-
-                #Print feature class, field, domain name
-                print FC, ",", field.name, ",", field.domain
-##            else:
-##                  print FC, ",", field.name
-
-#Get list of tables in geodatabase
-TBs = arcpy.ListTables()
-
-#Loop through tables in list
-for TB in TBs:
-
-        #List tables in feature dataset
-        fields = arcpy.ListFields(TB)
-
-        #Loop through fields
-        for field in fields:
-
-            #Check if field has domain
-            if field.domain != "":
-
-                #Print table, field, domain name
-                print TB, ",", field.name, ",", field.domain
+#Get list of feature classes and tables in geodatabase
+get_fields(arcpy.ListFeatureClasses())
+get_fields(arcpy.ListTables())
