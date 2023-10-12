@@ -1,71 +1,42 @@
-#-------------------------------------------------------------------------------
-# Author:      Brackston Land
-# Created:     2023
-#-------------------------------------------------------------------------------
+'''
+The purpose of this script is to recursively iterate through all
+files in a given path whose titles match a regex. Each line in the
+file is matched against another regex.
 
+Search strings are prompted through stdin and all matches are printed
+to stdout.
 
-# Import os module
+Authors: Brackston Land, Blake Herrera
+Created: 2023
+'''
+
 import os
-
-# Ask the user to enter string to search
-search_path = input("Enter directory path to search : ")
-file_type = input("File Type : ")
-search_str = input("Enter the search string : ")
-
-# Append a directory separator if not already present
-if not (search_path.endswith("/") or search_path.endswith("\\")):
-    search_path = search_path + "/"
-
-# If path does not exist, set search path to current directory
-if not os.path.exists(search_path):
-    search_path = "."
+import re
 
 
-def listdirs(rootdir):
-    for file in os.listdir(rootdir):
-        current_directory = os.path.join(rootdir, file)
-        if os.path.isdir(current_directory):
-
-            # Repeat for each file in the directory
-            for fname in os.listdir(current_directory):
-
-                # Apply file type filter
-                if fname.endswith(file_type):
-                    try:
-                        # print(fname)
-                        current_file = os.path.join(current_directory, fname)
-                        # Open file for reading
-                        fo = open(current_file)
-
-                        # Read the first line from the file.py
-                        line = fo.readline()
-
-                        # Initialize counter for line number
-                        line_no = 1
-
-                        # Loop until EOF
-                        while line != '':
-
-                            # Search for string in line
-                            index = line.find(search_str)
-                            if (index != -1):
-                                print(fname, "[", line_no, ",",
-                                      index, "] ", line, sep="")
-
-                            # Read next line
-                            line = fo.readline()
-
-                            # Increment line counter
-                            line_no += 1
-                        # Close the files
-                        fo.close()
-
-                    except:
-                        print("An exception occurred")
-
-                        # use recursion to check next folder
-                        # listdirs(current_directory)
+def __main__():
+    
+    # Prompt the user for search strings
+    # An empty search path defaults to current working directory
+    search_path = input("Enter directory path to search: ")
+    file_pattern = re.compile(input("Enter file name regex: "))
+    search_pattern = re.compile(input("Enter search regex: "))
+    
+    # Search for matching files and lines
+    # Recursively walk through the file system
+    for root, dirs, files in os.walk(search_path):
+    
+        # Iterate through only matching files
+        for file in map(open, filter(file_pattern.match, files)):
+    
+            # Iterate through lines with number
+            for line_num, line in enumerate(file):
+    
+                # Iterate through all matching instances and print them
+                for m in search_pattern.finditer(line):
+                    print(f'{os.path.join(root, file.name)}, line {line_num}, {m}')
 
 
-rootdir = search_path
-listdirs(rootdir)
+# This prevents the code from running on import.
+if __name__ == '__main__':
+    __main__()
